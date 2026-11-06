@@ -86,27 +86,32 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3 text-xs font-mono text-neutral-200">
               <li>
-                <a href="#work" className="hover:text-white transition-colors" style={{ color: '#e5e5e5' }}>
+                <a href="/case-studies" className="hover:text-white transition-colors font-bold" style={{ color: '#ffffff' }}>
+                  Case Studies [New]
+                </a>
+              </li>
+              <li>
+                <a href="/#work" className="hover:text-white transition-colors" style={{ color: '#e5e5e5' }}>
                   Recent Works
                 </a>
               </li>
               <li>
-                <a href="#process" className="hover:text-white transition-colors" style={{ color: '#e5e5e5' }}>
+                <a href="/#process" className="hover:text-white transition-colors" style={{ color: '#e5e5e5' }}>
                   Our 5-Step Process
                 </a>
               </li>
               <li>
-                <a href="#why-us" className="hover:text-white transition-colors" style={{ color: '#e5e5e5' }}>
+                <a href="/#why-us" className="hover:text-white transition-colors" style={{ color: '#e5e5e5' }}>
                   Why Autoagenix
                 </a>
               </li>
               <li>
-                <a href="#faq" className="hover:text-white transition-colors" style={{ color: '#e5e5e5' }}>
+                <a href="/#faq" className="hover:text-white transition-colors" style={{ color: '#e5e5e5' }}>
                   Frequently Asked Questions
                 </a>
               </li>
               <li>
-                <a href="#contact" className="hover:text-white transition-colors" style={{ color: '#e5e5e5' }}>
+                <a href="/#contact" className="hover:text-white transition-colors" style={{ color: '#e5e5e5' }}>
                   Start a Project
                 </a>
               </li>

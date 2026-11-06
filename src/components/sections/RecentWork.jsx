@@ -203,11 +203,28 @@ export default function RecentWork() {
           })}
         </div>
 
+        {/* Case Studies Link Banner */}
+        <div className="mt-16 sm:mt-20 text-center">
+          <div className="inline-flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-8 p-5 sm:p-6 rounded-2xl bg-neutral-950 border border-dashed border-white/30 max-w-3xl w-full text-left">
+            <div>
+              <div className="text-xs font-mono uppercase tracking-wider text-white font-bold">
+                // In-Depth Engineering Breakdowns
+              </div>
+              <p className="text-xs sm:text-sm text-neutral-300 font-sans mt-1">
+                Explore comprehensive case studies detailing architecture, technical hurdles, and commercial ROI.
+              </p>
+            </div>
+            <Button href="/case-studies" variant="primary" size="md" className="shrink-0 w-full sm:w-auto">
+              View All Case Studies
+            </Button>
+          </div>
+        </div>
+
         {/* Bottom Note */}
-        <div className="mt-16 text-center">
+        <div className="mt-8 text-center">
           <p className="text-xs font-mono text-neutral-400">
             Have a custom website or automation challenge in mind?{' '}
-            <a href="#contact" className="text-white font-semibold underline decoration-dashed hover:text-neutral-200 inline-flex items-center gap-1">
+            <a href="/#contact" className="text-white font-semibold underline decoration-dashed hover:text-neutral-200 inline-flex items-center gap-1">
               Let's build your platform together <ArrowUpRight className="w-3.5 h-3.5" />
             </a>
           </p>
