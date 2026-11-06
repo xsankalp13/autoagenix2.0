@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+    background-color: #000000;
+  }
+  
+  body {
+    @apply bg-black text-slate-100 font-sans antialiased overflow-x-hidden;
+    background-color: #000000;
+  }
+
+  /* Prevent browser :visited link purple override on dark backgrounds */
+  a, a:visited, a:hover, a:active {
+    color: inherit;
+  }
+
+  ::selection {
+    background-color: #ffffff;
+    color: #000000;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-white via-neutral-200 to-neutral-400 bg-clip-text text-transparent;
+  }
+
+  .text-gradient-lime {
+    @apply bg-gradient-to-r from-lime-300 via-lime-400 to-emerald-400 bg-clip-text text-transparent;
+  }
+
+  .bg-dashed-grid {
+    background-size: 48px 48px;
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  }
+
+  .border-dashed-light {
+    border-style: dashed;
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+  .border-dashed-hover:hover {
+    border-color: rgba(255, 255, 255, 0.35);
+  }
+
+  .corner-crosshairs {
+    position: relative;
+  }
+  .corner-crosshairs::before,
+  .corner-crosshairs::after {
+    content: '+';
+    position: absolute;
+    font-family: monospace;
+    font-size: 14px;
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.3);
+    pointer-events: none;
+  }
+  .corner-crosshairs::before {
+    top: -7px;
+    left: -7px;
+  }
+  .corner-crosshairs::after {
+    bottom: -7px;
+    right: -7px;
+  }
+}
