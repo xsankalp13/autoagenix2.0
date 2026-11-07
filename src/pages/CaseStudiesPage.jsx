@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowLeft, ExternalLink, Shield, ArrowUpRight, CheckCircle2, Sparkles, Filter, ChevronRight, Mail } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import DashedFrame from '../components/ui/DashedFrame';
 import Button from '../components/ui/Button';
 import Badge from '../components/ui/Badge';
@@ -33,16 +34,16 @@ export default function CaseStudiesPage() {
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex items-center justify-between">
           {/* Back to Home & Logo */}
           <div className="flex items-center gap-4 sm:gap-6">
-            <a
-              href="/"
+            <Link
+              to="/"
               className="inline-flex items-center gap-2 text-xs font-mono text-white hover:text-neutral-300 transition-colors border border-dashed border-white/30 px-3 py-1.5 rounded-lg bg-neutral-950"
               style={{ color: '#ffffff' }}
             >
               <ArrowLeft className="w-3.5 h-3.5" />
               <span>Back to Home</span>
-            </a>
+            </Link>
 
-            <a href="/" className="flex items-center gap-2 font-mono text-lg font-black text-white">
+            <Link to="/" className="flex items-center gap-2 font-mono text-lg font-black text-white">
               <img
                 src="/images/logo.png"
                 alt="Autoagenix"
@@ -51,7 +52,7 @@ export default function CaseStudiesPage() {
               <span className="hidden sm:inline">
                 auto<span className="text-white font-bold">agenix</span>
               </span>
-            </a>
+            </Link>
           </div>
 
           {/* Direct CTA */}
@@ -356,3 +357,4 @@ export default function CaseStudiesPage() {
     </div>
   );
 }
+

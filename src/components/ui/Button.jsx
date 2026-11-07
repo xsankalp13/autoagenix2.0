@@ -1,11 +1,13 @@
 import React from 'react';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function Button({
   children,
   variant = 'primary',
   size = 'md',
   href,
+  to,
   onClick,
   icon = true,
   external = false,
@@ -70,6 +72,37 @@ export default function Button({
     ...style,
   };
 
+  const destination =
+    to ||
+    (href &&
+    !external &&
+    typeof href === 'string' &&
+    href.startsWith('/') &&
+    !href.startsWith('/#') &&
+    !href.startsWith('//')
+      ? href
+      : null);
+
+  if (destination) {
+    return (
+      <Link
+        to={destination}
+        className={combinedClasses}
+        style={buttonStyle}
+        onClick={onClick}
+        {...props}
+      >
+        <span
+          className={`font-bold ${isPrimary ? 'text-black' : 'text-white'}`}
+          style={{ color: textColor }}
+        >
+          {children}
+        </span>
+        {renderIcon()}
+      </Link>
+    );
+  }
+
   if (href) {
     return (
       <a
@@ -78,6 +111,7 @@ export default function Button({
         style={buttonStyle}
         target={external ? '_blank' : undefined}
         rel={external ? 'noopener noreferrer' : undefined}
+        onClick={onClick}
         {...props}
       >
         <span

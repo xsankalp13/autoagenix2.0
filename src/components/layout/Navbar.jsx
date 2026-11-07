@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ArrowUpRight, Sparkles } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import Button from '../ui/Button';
 
 export default function Navbar() {
@@ -33,8 +34,8 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex items-center justify-between">
         {/* Brand Logo */}
-        <a
-          href="#"
+        <Link
+          to="/"
           className="group flex items-center gap-2.5 text-xl sm:text-2xl font-black tracking-tight text-white transition-opacity"
         >
           <img
@@ -46,21 +47,40 @@ export default function Navbar() {
             auto<span className="text-white font-bold">agenix</span>
           </span>
           <span className="w-1.5 h-1.5 rounded-full bg-lime-400 animate-pulse"></span>
-        </a>
+        </Link>
 
         {/* Desktop Navigation Links */}
         <nav className="hidden md:flex items-center gap-8 text-xs uppercase tracking-widest font-mono text-white font-semibold">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="relative py-1 text-white hover:text-neutral-200 transition-colors duration-200 group"
-              style={{ color: '#ffffff' }}
-            >
-              <span>{link.name}</span>
-              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full" />
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            const isInternalRoute =
+              link.href.startsWith('/') && !link.href.startsWith('/#');
+
+            if (isInternalRoute) {
+              return (
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  className="relative py-1 text-white hover:text-neutral-200 transition-colors duration-200 group"
+                  style={{ color: '#ffffff' }}
+                >
+                  <span>{link.name}</span>
+                  <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full" />
+                </Link>
+              );
+            }
+
+            return (
+              <a
+                key={link.name}
+                href={link.href}
+                className="relative py-1 text-white hover:text-neutral-200 transition-colors duration-200 group"
+                style={{ color: '#ffffff' }}
+              >
+                <span>{link.name}</span>
+                <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full" />
+              </a>
+            );
+          })}
         </nav>
 
         {/* Right CTA */}
@@ -100,17 +120,36 @@ export default function Navbar() {
       {mobileMenuOpen && (
         <div className="md:hidden fixed inset-x-0 top-[65px] bg-black/95 backdrop-blur-2xl border-b border-dashed border-white/15 px-6 py-8 shadow-2xl transition-all">
           <nav className="flex flex-col gap-4 text-sm font-mono text-neutral-200">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="py-2.5 px-3 rounded-lg hover:bg-white/5 hover:text-white border border-dashed border-transparent hover:border-white/15 transition-all flex items-center justify-between"
-              >
-                <span>{link.name}</span>
-                <span className="text-xs text-neutral-500 font-mono">/&gt;</span>
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const isInternalRoute =
+                link.href.startsWith('/') && !link.href.startsWith('/#');
+
+              if (isInternalRoute) {
+                return (
+                  <Link
+                    key={link.name}
+                    to={link.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="py-2.5 px-3 rounded-lg hover:bg-white/5 hover:text-white border border-dashed border-transparent hover:border-white/15 transition-all flex items-center justify-between"
+                  >
+                    <span>{link.name}</span>
+                    <span className="text-xs text-neutral-500 font-mono">/&gt;</span>
+                  </Link>
+                );
+              }
+
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="py-2.5 px-3 rounded-lg hover:bg-white/5 hover:text-white border border-dashed border-transparent hover:border-white/15 transition-all flex items-center justify-between"
+                >
+                  <span>{link.name}</span>
+                  <span className="text-xs text-neutral-500 font-mono">/&gt;</span>
+                </a>
+              );
+            })}
             <div className="pt-4 border-t border-dashed border-white/15 flex flex-col gap-3">
               <Button
                 href="#contact"

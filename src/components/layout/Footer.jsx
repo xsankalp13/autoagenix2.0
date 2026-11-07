@@ -1,5 +1,6 @@
 import React from 'react';
 import { Mail, ArrowUpRight, Cookie } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -15,7 +16,7 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-12 pb-10 sm:pb-16 border-b border-dashed border-white/15">
           {/* Brand info */}
           <div className="col-span-2 lg:col-span-2 space-y-4 sm:space-y-5">
-            <a href="#" className="flex items-center gap-2.5 text-2xl font-black text-white font-mono">
+            <Link to="/" className="flex items-center gap-2.5 text-2xl font-black text-white font-mono">
               <img
                 src="/images/logo.png"
                 alt="Autoagenix Logo"
@@ -25,7 +26,7 @@ export default function Footer() {
                 auto<span className="text-white font-bold">agenix</span>
               </span>
               <span className="w-1.5 h-1.5 rounded-full bg-lime-400 animate-pulse"></span>
-            </a>
+            </Link>
             <p className="text-neutral-200 text-xs sm:text-sm leading-relaxed max-w-sm" style={{ color: '#e5e5e5' }}>
               We design and engineer bespoke custom websites and autonomous workflow systems that transform operations and drive measurable business scale.
             </p>
@@ -86,9 +87,9 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3 text-xs font-mono text-neutral-200">
               <li>
-                <a href="/case-studies" className="hover:text-white transition-colors font-bold" style={{ color: '#ffffff' }}>
+                <Link to="/case-studies" className="hover:text-white transition-colors font-bold" style={{ color: '#ffffff' }}>
                   Case Studies [New]
-                </a>
+                </Link>
               </li>
               <li>
                 <a href="/#work" className="hover:text-white transition-colors" style={{ color: '#e5e5e5' }}>
